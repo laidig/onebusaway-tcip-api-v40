@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Cecil W. Goodwin (Consultant) -->
 <!-- Modified by Rob Ayers 24 November 2014 to handle problems encountered by NY with Java and LINUX-->
-<xs:schema xmlns:local="http://www.dummy-local-address" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.lrms-final-09-07" targetNamespace="http://www.lrms-final-09-07" elementFormDefault="unqualified" attributeFormDefault="unqualified">
-	<xs:import namespace="http://www.dummy-local-address" schemaLocation="lrms_09_07_local.xsd"/>
+<xs:schema xmlns:local="http://www.lrms-local-atis-im" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.lrms-final-09-07-for-atis-im" targetNamespace="http://www.lrms-final-09-07-for-atis-im" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.lrms-local-atis-im" schemaLocation="lrms_local_for_atis_and_im.xsd"/>
 	<xs:complexType name="Address">
 		<xs:sequence>
 			<xs:element name="locationName" type="Text-name255" minOccurs="0"/>
@@ -105,9 +106,7 @@
 			<xs:element name="complexAttributes" type="Text-name255" minOccurs="0" maxOccurs="100"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- Changed the name of the following complexType from Chain to ChainP to eliminate potential name conflictes with the chain element contained
-within it, and with other TCIP helper files. -->
-	<xs:complexType name="ChainP">
+	<xs:complexType name="ChainS">
 		<xs:sequence>
 			<xs:element name="chain">
 				<xs:complexType>
@@ -392,7 +391,7 @@ within it, and with other TCIP helper files. -->
 				<xs:element name="link" type="GeoLocationLink"/>
 				<xs:element name="area" type="IdType"/>
 				<xs:element name="polygon" type="Polygon"/>
-				<xs:element name="chain" type="ChainP"/>
+				<xs:element name="chain" type="ChainS"/>
 				<xs:element name="transition" type="Transition"/>
 			</xs:choice>
 		</xs:sequence>
@@ -705,7 +704,7 @@ within it, and with other TCIP helper files. -->
 				<xs:element name="pointLocation" type="PointLocation" minOccurs="0"/>
 				<xs:element name="linkLocation" type="LinkLocation" minOccurs="0"/>
 				<xs:element name="areaLocation" type="AreaLocation" minOccurs="0"/>
-				<xs:element name="chain" type="ChainP" minOccurs="0"/>
+				<xs:element name="chain" type="ChainS" minOccurs="0"/>
 				<xs:element name="transition" type="Transition" minOccurs="0"/>
 				<xs:element name="groupLocation" type="GroupLocation" minOccurs="0"/>
 				<xs:element name="routeLocation" type="RouteLocation" minOccurs="0"/>
@@ -907,7 +906,7 @@ within it, and with other TCIP helper files. -->
 				<xs:element name="chainObject">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="chain" type="ChainP"/>
+							<xs:element name="chain" type="ChainS"/>
 							<xs:element name="chainAttributes" type="Attributes" minOccurs="0"/>
 						</xs:sequence>
 					</xs:complexType>
@@ -1605,7 +1604,7 @@ within it, and with other TCIP helper files. -->
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PublicGridGridStep">
-		<xs:restriction base="xs:unsignedInt">
+		<xs:restriction base="xs:unsignedShort">
 			<xs:maxInclusive value="10000"/>
 			<xs:minInclusive value="1"/>
 		</xs:restriction>
@@ -1730,7 +1729,7 @@ within it, and with other TCIP helper files. -->
 	</xs:simpleType>
 	<!-- END of the output -->
 	<xs:element name="locationReference" type="LocationReference"/>
-	<!-- pasted in from DSRC schema to make this copy of LRMS independent of the separate schema -->
+	<!-- pasted in from DSRC schema, to make this schema stand alone -->
 	<xs:simpleType name="country-code-text">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="dummy1"/>

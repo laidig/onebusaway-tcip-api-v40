@@ -31,15 +31,15 @@
         </executions>
         <configuration>
           <schemaDirectory>src/main/resources</schemaDirectory>
-          <schemaIncludes/>
+<!--           <schemaIncludes/> -->
           <schemas>
-            <schema>
+<!--             <schema>
               <fileset>
                 <includes>
                   <include>TCIP_4_0_0_Final.xsd</include>
                 </includes>
               </fileset>
-            </schema>
+            </schema> -->
             <schema>
               <fileset>
                 <includes>
@@ -48,11 +48,6 @@
               </fileset>
             </schema>
           </schemas>
-          <bindingDirectory>src/main/resources/local</bindingDirectory>
-          <bindingIncludes>
-            <!-- Handles nested-class issues in the LRMS schemas; see the .xjb for more detail. -->
-            <include>rename.xjb</include>
-          </bindingIncludes>
         </configuration>
       </plugin>
       <plugin>

@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 sp1 (x64) (http://www.altova.com) by Robert G Ayers (AE) -->
 <!-- Output of XML portions of the registry data into file: IM-Local-Draft-03-00-38.xsd -->
 <!-- Run on Mini-Edit [Version 2.0.410] -->
-<!-- From node D:-75-0649-5535 Created on 5/30/2006 at 9:05:04 PM  -->
-<!-- Source DB File: ieee_combined_r39.ITS rendered into namespace: IM-Local  -->
-<!-- Edit namespaces to reflect the schema releases you will be using. -->
-<!-- Place at: www.YourSite.xxx/ITSschemas/IM-03-00-38/im-local-draft-03-00-38.xsd  -->
-<!-- Local copy saved to: D:/Documents and Settings/sboarman/My Documents/APTA TCIP/3.0.0/IEEE IM BUILD/ITSschemas/IM-03-00-38/im-local-draft-03-00-38.xsd -->
-<!-- Production releases of ITS schemas can be found at: http://www.ITSware.net/XML/readme.htm -->
+<!-- Modified by Rob Ayers 24 November 2014 to handle problems encountered by NY with Java and LINUX-->
 <!--  -->
 <xs:schema xmlns="http://www.im-03-00-38-local" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.im-03-00-38-local" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="DRAFT">
 	<xs:annotation>

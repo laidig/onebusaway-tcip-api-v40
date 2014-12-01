@@ -2,9 +2,10 @@
 <!-- ITIS schema Revision 3.0 RC of April 7th (a draft std)  -->
 <!-- Run on Mini-Edit [Version 0.8.318] -->
 <!-- From node C:-70-0762-8782 Created on 4/7/2005at 2:53:01 PM  -->
+<!-- Modified by Rob Ayers 24 November 2014 to handle problems encountered by NY with Java and LINUX-->
 <!--  -->
 <xs:schema xmlns="http://www.itis-final-3-0-0-for-atis" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:local="http://www.itis-3-0-0-local-for-atis" targetNamespace="http://www.itis-final-3-0-0-for-atis" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="FINAL">
-	<xs:import namespace="http://www.itis-3-0-0-local-for-atis" schemaLocation="ITIS_Local_for_atis.xsd"/>
+	<xs:import namespace="http://www.itis-3-0-0-local-for-atis" schemaLocation="itis_local_for_atis.xsd"/>
 	<!-- Descriptive Name: DF_ITIS-Codes_And_Text -->
 	<xs:complexType name="ITIScodesAndText">
 		<xs:sequence maxOccurs="100">

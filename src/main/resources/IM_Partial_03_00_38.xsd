@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Output of XML portions of the registry data into file: IM-Draft-03-00-38.xsd -->
-
-<!-- Production releases of ITS schemas can be found at: http://www.ITSware.net/XML/readme.htm -->
+<!-- Modified by Rob Ayers 24 November 2014 to handle problems encountered by NY with Java and LINUX-->
 <!--  -->
-<xs:schema targetNamespace="http://www.im-partial-03-00-38" xmlns="http://www.im-partial-03-00-38" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:local-itis="http://www.itis-local-for-im" xmlns:lrms="http://www.lrms-final-09-07-for-im" xmlns:local="http://www.im-03-00-38-local" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="DRAFT">
+<xs:schema xmlns="http://www.im-partial-03-00-38" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:local-itis="http://www.itis-local-for-im" xmlns:lrms="http://www.lrms-final-09-07-for-atis-im" xmlns:local="http://www.im-03-00-38-local" targetNamespace="http://www.im-partial-03-00-38" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="DRAFT">
 	<!-- xmlns:tcip="http://www.tcip-final-3-0-0"  removed from declarations above-->
-	<xs:import namespace="http://www.itis-local-for-im" schemaLocation="ITIS_Local_for_im.xsd"/>
-	<xs:import namespace="http://www.lrms-final-09-07-for-im" schemaLocation="LRMS_Final_09_07_for_im.xsd"/>
-	<xs:import namespace="http://www.im-03-00-38-local" schemaLocation="IM_03_00_38_Local.xsd"/>
+	<xs:import namespace="http://www.itis-local-for-im" schemaLocation="itis_local_for_im.xsd"/>
+	<xs:import namespace="http://www.lrms-final-09-07-for-atis-im" schemaLocation="lrms_final_09_07_for_atis_and_im.xsd"/>
+	<xs:import namespace="http://www.im-03-00-38-local" schemaLocation="im_03_00_38_local.xsd"/>
 	<xs:annotation>
 		<xs:documentation>
       Exported on: 09:10:59 AM Tuesday, May 30, 2006 From file: ieee_combined_r39.ITS [By: Mini-Edit Rev 2.0.410] 
@@ -71,7 +70,7 @@
          in a retracted state)
          Units are in tenths of a meter. -->
 			<xs:element name="owner" type="Organization-center-identifier" minOccurs="0"/>
-		<!--	<xs:element name="responseType" type="ResponderGroupAffected" minOccurs="0"/> -->
+			<!--	<xs:element name="responseType" type="ResponderGroupAffected" minOccurs="0"/> -->
 			<!-- the gross type of response vehicle this is classed as -->
 			<xs:element name="canReverseLane" minOccurs="0">
 				<xs:simpleType>
@@ -202,14 +201,12 @@
 			<xs:maxLength value="64"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<xs:simpleType name="CenterAssetPermRef">
-	  <xs:restriction base="xs:string" >
-	    <xs:minLength value="1"/>
-	    <xs:maxLength value="32"/>
-	  </xs:restriction>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="32"/>
+		</xs:restriction>
 	</xs:simpleType>
-	
 	<!-- import from itis -->
 	<!-- Descriptive Name: DE_Responder-Group-Affected -->
 	<xs:simpleType name="ResponderGroupAffected">
@@ -239,16 +236,15 @@
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:simpleType>
-				<xs:restriction base="xs:string">
-				</xs:restriction>
+				<xs:restriction base="xs:string"/>
 			</xs:simpleType>
 			<xs:simpleType>
 				<xs:restriction base="local-itis:ResponderGroupAffected"/>
 			</xs:simpleType>
 		</xs:union>
 	</xs:simpleType>
-<!-- imports from tmdd replicated so as to reduce file count for tcip -->
-<!-- Descriptive Name: EXT_LINK_RestrictionAxleCount_quantity -->
+	<!-- imports from tmdd replicated so as to reduce file count for tcip -->
+	<!-- Descriptive Name: EXT_LINK_RestrictionAxleCount_quantity -->
 	<xs:simpleType name="Link-restriction-axle-count">
 		<xs:annotation>
 			<xs:documentation>       
@@ -424,7 +420,7 @@
 			<xs:maxLength value="64"/>
 		</xs:restriction>
 	</xs:simpleType>
-		<!-- Descriptive Name: EXT_ORGANIZATION_CenterIdentifier_identifier -->
+	<!-- Descriptive Name: EXT_ORGANIZATION_CenterIdentifier_identifier -->
 	<xs:simpleType name="Organization-center-identifier">
 		<xs:annotation>
 			<xs:documentation>       
@@ -435,8 +431,8 @@
 			<xs:minLength value="1"/>
 			<xs:maxLength value="32"/>
 		</xs:restriction>
-	</xs:simpleType>	
-		<!-- Descriptive Name: EXT_LINK_SpeedLimit_rate -->
+	</xs:simpleType>
+	<!-- Descriptive Name: EXT_LINK_SpeedLimit_rate -->
 	<xs:simpleType name="Link-speed-limit">
 		<xs:annotation>
 			<xs:documentation>       
@@ -445,5 +441,4 @@
 		</xs:annotation>
 		<xs:restriction base="xs:unsignedByte"/>
 	</xs:simpleType>
-	
 </xs:schema>

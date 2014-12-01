@@ -2,9 +2,10 @@
 <!-- ITIS schema Revision 3.0 RC of April 7th (a draft std)  -->
 <!-- Run on Mini-Edit [Version 0.8.318] -->
 <!-- From node C:-70-0762-8782 Created on 4/7/2005at 2:53:01 PM  -->
+<!-- Modified by Rob Ayers 24 November 2014 to handle problems encountered by NY with Java and LINUX-->
 <!--  -->
 <xs:schema xmlns="http://www.itis-final-3-0-0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:local="http://www.itis-3-0-0-local" targetNamespace="http://www.itis-final-3-0-0" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="DRAFT">
-	<xs:import namespace="http://www.itis-3-0-0-local" schemaLocation="ITIS_3_0_0_Local.xsd"/>
+	<xs:import namespace="http://www.itis-3-0-0-local" schemaLocation="itis_3_0_0_local.xsd"/>
 	<xs:annotation>
 		<xs:documentation>
       Exported on: 02:53:01 PM Thursday, April 07, 2005 From file: aITIS_List_RC1.mdb [By: Mini-Edit Rev 0.8.318] 
