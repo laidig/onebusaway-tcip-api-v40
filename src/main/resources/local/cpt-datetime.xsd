@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings jxb:version="2.1" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <jxb:bindings node="/xs:schema" schemaLocation="../TCIP_4_0_0_Final.xsd">
+    <jxb:bindings node="//xs:simpleType[@name='CPT-DateTime']">
+      <jxb:class ref="javax.xml.datatype.XMLGregorianCalendar"/>
+    </jxb:bindings>
+  </jxb:bindings>
+</jxb:bindings>

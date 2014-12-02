@@ -34,6 +34,13 @@
               </fileset>
             </schema>
           </schemas>
+          <bindingDirectory>src/main/resources/local</bindingDirectory>
+          <bindingIncludes>
+            <include>cpt-datetime.xsd</include>
+          </bindingIncludes>
+          <args>
+            <arg>-Xinject-code</arg>
+          </args>
         </configuration>
       </plugin>
     </plugins>
