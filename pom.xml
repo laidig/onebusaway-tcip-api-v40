@@ -38,9 +38,6 @@
           <bindingIncludes>
             <include>cpt-datetime.xsd</include>
           </bindingIncludes>
-          <args>
-            <arg>-Xinject-code</arg>
-          </args>
         </configuration>
       </plugin>
     </plugins>
