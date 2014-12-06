@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jxb:bindings jxb:version="2.1" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<jxb:bindings jxb:version="2.1" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.TCIP-Final-4-0-0" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc">
   <jxb:bindings node="/xs:schema" schemaLocation="../TCIP_4_0_0_Final.xsd">
-    <jxb:bindings node="//xs:simpleType[@name='CPT-DateTime']">
-      <jxb:class ref="javax.xml.datatype.XMLGregorianCalendar"/>
-    </jxb:bindings>
+    <jxb:globalBindings>
+        <jxb:javaType name="org.joda.time.DateTime" xmlType="xs:dateTime"/>
+        <jxb:javaType name="org.joda.time.DateTime" xmlType="tns:CPT-DateTime"/>
+        <jxb:javaType name="org.joda.time.LocalDate" xmlType="tns:CPT-Date"/>
+        <jxb:javaType name="org.joda.time.LocalTime" xmlType="tns:CPT-Time"/>
+      </jxb:globalBindings>
   </jxb:bindings>
 </jxb:bindings>
