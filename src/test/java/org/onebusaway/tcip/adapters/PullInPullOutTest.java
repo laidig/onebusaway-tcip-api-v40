@@ -36,6 +36,10 @@ import tcip_final_4_0_0.SchPullOutList;
  * SchPullOutList per se; that's just a sample class.  
  */
 
+/*
+ * Note this test is timezone-sensitive; needs to run like "mvn clean test -Duser.timezone=America/New_York".
+ */
+
 public class PullInPullOutTest {
 
 	@Test

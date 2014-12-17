@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns5:schPullOutList created="2011-06-01T04:59:00.000-07:00" schVersion="TCIP 4.0" sourceapp="YardBoss" noNameSpaceSchemaLocation="http://www.aptatcip.com/APTA-TCIP-S-01%204.0_files/Schema%20Set.zip" deactivation="2040-01-04T23:59:00.000-08:00" xmlns:ns2="http://www.lrms-final-09-07" xmlns:ns4="http://www.atis-partial-03-00-74" xmlns:ns3="http://www.lrms-final-09-07-for-atis-im" xmlns:ns5="http://www.TCIP-Final-4-0-0">
+<!-- Note the test that uses this file is timezone-sensitive; needs to run like "mvn clean test -Duser.timezone=America/New_York" -->
+<ns5:schPullOutList created="2011-06-01T04:59:00.000-04:00" schVersion="TCIP 4.0" sourceapp="YardBoss" noNameSpaceSchemaLocation="http://www.aptatcip.com/APTA-TCIP-S-01%204.0_files/Schema%20Set.zip" deactivation="2040-01-04T23:59:00.000-05:00" xmlns:ns2="http://www.lrms-final-09-07" xmlns:ns4="http://www.atis-partial-03-00-74" xmlns:ns3="http://www.lrms-final-09-07-for-atis-im" xmlns:ns5="http://www.TCIP-Final-4-0-0">
     <subscriptionInfo>
         <requestedType>Event</requestedType>
         <expirationTime>19:00:00.000</expirationTime>
@@ -28,7 +29,7 @@
                 <desig>TA859007</desig>
             </operator>
             <date>2011-06-01</date>
-            <time>2011-06-01T04:59:00.000-07:00</time>
+            <time>2011-06-01T04:59:00.000-04:00</time>
             <run>
                 <id>S56-001</id>
             </run>
@@ -47,7 +48,7 @@
                 <ag>2008</ag>
             </vehicle>
             <date>2011-06-01</date>
-            <time>2011-06-02T00:49:00.000-07:00</time>
+            <time>2011-06-02T00:49:00.000-04:00</time>
             <run>
                 <id>S56-001</id>
             </run>
