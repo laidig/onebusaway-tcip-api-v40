@@ -1,12 +1,15 @@
 package org.onebusaway.tcip.adapters;
 
 import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
+import static org.junit.Assert.assertEquals;
+import static net.javacrumbs.jsonunit.JsonAssert.assertJsonEquals;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigInteger;
 import java.net.URL;
+import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -20,6 +23,9 @@ import org.joda.time.LocalTime;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
+
 import tcip_final_4_0_0.CPTOperatorIden;
 import tcip_final_4_0_0.CPTSubscriptionHeader;
 import tcip_final_4_0_0.CPTTransitFacilityIden;
@@ -30,6 +36,7 @@ import tcip_final_4_0_0.SCHOperatorAssignment.DayTypes;
 import tcip_final_4_0_0.SCHPullInOutInfo;
 import tcip_final_4_0_0.SCHRunIden;
 import tcip_final_4_0_0.SchPullOutList;
+import tcip_final_4_0_0.SchPullOutList.PullOuts;
 
 /*
  * This is here to test the XML schema and bindings file, not really to test
@@ -62,6 +69,32 @@ public class PullInPullOutTest {
 		
 		assertXMLEqual(expected, xml);
 
+	}
+
+	@Test
+	public void testJson() throws JAXBException, IOException, SAXException {
+
+		SchPullOutList pullOuts = makePullOuts();
+
+		JaxbAnnotationModule module = new JaxbAnnotationModule();
+		ObjectMapper m = new ObjectMapper();
+		 m.registerModule(module);
+		
+		String s = m.writeValueAsString(pullOuts);
+		
+		URL resource = this.getClass().getResource("SchPullOutListSample.json");
+		String expected = FileUtils.readFileToString(new File(resource.getPath()));
+
+		assertJsonEquals(expected, s);
+
+		// This is not an exhaustive test, we just see if part of the structure 
+		// and a known value is there.		
+		SchPullOutList newPulloutList = m.readValue(s, SchPullOutList.class);
+		PullOuts pullOuts2 = newPulloutList.getPullOuts();
+		List<SCHPullInOutInfo> pullOut = pullOuts2.getPullOut();
+		SCHPullInOutInfo info = pullOut.get(0);
+		assertEquals("CSLT", info.getGarage().getId());
+		
 	}
 
 	// CcReportPullOuts meets the description, but is trip and not
