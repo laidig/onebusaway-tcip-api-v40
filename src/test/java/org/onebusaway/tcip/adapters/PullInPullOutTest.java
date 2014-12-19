@@ -23,6 +23,7 @@ import org.joda.time.LocalTime;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 
@@ -55,18 +56,21 @@ public class PullInPullOutTest {
 		SchPullOutList pullOuts = makePullOuts();
 
 		ObjectFactory f = new ObjectFactory();
-		JAXBElement<SchPullOutList> pullOutListElement = f.createSchPullOutList(pullOuts);
-		Marshaller m = JAXBContext.newInstance(ObjectFactory.class).createMarshaller();
+		JAXBElement<SchPullOutList> pullOutListElement = f
+				.createSchPullOutList(pullOuts);
+		Marshaller m = JAXBContext.newInstance(ObjectFactory.class)
+				.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		
+
 		StringWriter writer = new StringWriter();
 
 		m.marshal(pullOutListElement, writer);
 		String xml = writer.toString();
-		
+
 		URL resource = this.getClass().getResource("SchPullOutListSample.xml");
-		String expected = FileUtils.readFileToString(new File(resource.getPath()));
-		
+		String expected = FileUtils.readFileToString(new File(resource
+				.getPath()));
+
 		assertXMLEqual(expected, xml);
 
 	}
@@ -78,23 +82,43 @@ public class PullInPullOutTest {
 
 		JaxbAnnotationModule module = new JaxbAnnotationModule();
 		ObjectMapper m = new ObjectMapper();
-		 m.registerModule(module);
-		
+		m.registerModule(module);
+
 		String s = m.writeValueAsString(pullOuts);
-		
+
 		URL resource = this.getClass().getResource("SchPullOutListSample.json");
-		String expected = FileUtils.readFileToString(new File(resource.getPath()));
+		String expected = FileUtils.readFileToString(new File(resource
+				.getPath()));
 
-		assertJsonEquals(expected, s);
+		 assertJsonEquals(expected, s);
 
-		// This is not an exhaustive test, we just see if part of the structure 
-		// and a known value is there.		
+		// This is not an exhaustive test, we just see if part of the structure
+		// and a known value is there.
 		SchPullOutList newPulloutList = m.readValue(s, SchPullOutList.class);
 		PullOuts pullOuts2 = newPulloutList.getPullOuts();
 		List<SCHPullInOutInfo> pullOut = pullOuts2.getPullOut();
 		SCHPullInOutInfo info = pullOut.get(0);
 		assertEquals("CSLT", info.getGarage().getId());
-		
+
+	}
+
+	@Test
+	public void testJsonParse() throws JAXBException, IOException, SAXException {
+
+		JaxbAnnotationModule module = new JaxbAnnotationModule();
+		ObjectMapper m = new ObjectMapper();
+		m.registerModule(module);
+
+		URL resource = this.getClass().getResource("SchPullOutListSample.json");
+
+		SchPullOutList pulloutList = (SchPullOutList) m.readValue(new File(
+				resource.getPath()), SchPullOutList.class);
+
+		PullOuts pullOuts2 = pulloutList.getPullOuts();
+		List<SCHPullInOutInfo> pullOut = pullOuts2.getPullOut();
+		SCHPullInOutInfo info = pullOut.get(0);
+		assertEquals("CSLT", info.getGarage().getId());
+
 	}
 
 	// CcReportPullOuts meets the description, but is trip and not
@@ -109,7 +133,7 @@ public class PullInPullOutTest {
 
 		LocalTime aDifferentTime = new LocalTime("19:00:00");
 		LocalDate aDay = new LocalDate("2011-06-01");
-//		LocalDate anotherDay = new LocalDate("2011-06-02");
+		// LocalDate anotherDay = new LocalDate("2011-06-02");
 
 		CPTSubscriptionHeader subHeader = new CPTSubscriptionHeader();
 		subHeader.setRequestedType("Event");
