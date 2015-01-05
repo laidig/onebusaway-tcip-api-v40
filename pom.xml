@@ -9,6 +9,7 @@
   <artifactId>onebusaway-tcip-api-v40</artifactId>
   <packaging>jar</packaging>
   <name>onebusaway-tcip-api-v40</name>
+  <version>1.0.1-SNAPSHOT</version>
   <properties>
     <jackson.version>2.4.1</jackson.version>
   </properties>
