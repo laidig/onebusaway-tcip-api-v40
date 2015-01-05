@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!-- Note the test that uses this file is timezone-sensitive; needs to run like "mvn clean test -Duser.timezone=America/New_York" -->
-<ns5:schPullOutList created="2011-06-01T04:59:00.000-04:00" schVersion="TCIP 4.0" sourceapp="YardBoss" noNameSpaceSchemaLocation="http://www.aptatcip.com/APTA-TCIP-S-01%204.0_files/Schema%20Set.zip" deactivation="2040-01-04T23:59:00.000-05:00" xmlns:ns2="http://www.lrms-final-09-07" xmlns:ns4="http://www.atis-partial-03-00-74" xmlns:ns3="http://www.lrms-final-09-07-for-atis-im" xmlns:ns5="http://www.TCIP-Final-4-0-0">
+<ns5:schPullOutList xsi:type="ns5:ObaSchPullOutList" created="2011-06-01T04:59:00.000-04:00" schVersion="TCIP 4.0" sourceapp="YardBoss" noNameSpaceSchemaLocation="http://www.aptatcip.com/APTA-TCIP-S-01%204.0_files/Schema%20Set.zip" deactivation="2040-01-04T23:59:00.000-05:00" xmlns:ns2="http://www.lrms-final-09-07" xmlns:ns4="http://www.atis-partial-03-00-74" xmlns:ns3="http://www.lrms-final-09-07-for-atis-im" xmlns:ns5="http://www.TCIP-Final-4-0-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <subscriptionInfo>
         <requestedType>Event</requestedType>
         <expirationTime>19:00:00.000</expirationTime>
@@ -57,4 +57,6 @@
             </block>
         </pull-out>
     </pull-outs>
+    <errorCode>1</errorCode>
+    <errorDescription>Sample error description</errorDescription>
 </ns5:schPullOutList>

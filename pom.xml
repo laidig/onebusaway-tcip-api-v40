@@ -94,6 +94,7 @@
                 <includes>
                   <!-- See note in this source file about what this local extension is. -->
                   <include>local/ObaCcLocationReport.xsd</include>
+                  <include>local/ObaSchPullOutList.xsd</include>
                 </includes>
               </fileset>
             </schema>

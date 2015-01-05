@@ -1,152 +1,67 @@
 {
-    "subscriptionInfo": {
-        "requestedType": "Event",
-        "expirationTime": "19:00:00.000",
-        "reportInterval": null,
-        "requestIdentifier": 1,
-        "subscriberIdentifier": 0,
-        "publisherIdentifier": 0,
-        "applicability": null
-    },
-    "languages": null,
     "beginDate": "2011-06-01",
     "beginTime": "04:59:00.000",
+    "created": "2011-06-01T04:59:00.000-04:00",
+    "deactivation": "2040-01-04T23:59:00.000-05:00",
     "endDate": "2011-06-01",
     "endTime": "00:49:00.000",
+    "errorCode": "1",
+    "errorDescription": "Sample error description",
+    "noNameSpaceSchemaLocation": "http://www.aptatcip.com/APTA-TCIP-S-01%204.0_files/Schema%20Set.zip",
     "pull-outs": {
         "pull-out": [
             {
-                "pull-in": false,
-                "garage": {
-                    "id": "CSLT",
-                    "ag": null,
-                    "name": null,
-                    "nameLangs": null,
-                    "baseName": null,
-                    "baseNameLangs": null,
-                    "agdesig": "MTA NYCT",
-                    "agdesigLangs": null,
-                    "desig": null,
-                    "desigLangs": null
+                "block": {
+                    "id": "MTA NYCT_20120206_CSLT_S56_001"
                 },
-                "vehicle": {
-                    "id": "7777",
-                    "ag": 2008,
-                    "vin": null,
-                    "name": null,
-                    "nameLangs": null,
-                    "desig": null,
-                    "desigLangs": null,
-                    "agdesig": null,
-                    "agdesigLangs": null
+                "date": "2011-06-01",
+                "garage": {
+                    "agdesig": "MTA NYCT",
+                    "id": "CSLT"
                 },
                 "operator": {
-                    "id": "859007",
                     "ag": 2008,
-                    "name": null,
-                    "nameLangs": null,
                     "desig": "TA859007",
-                    "desigLangs": null,
-                    "agdesig": null,
-                    "agdesigLangs": null,
-                    "ssn": null,
-                    "firstName": null,
-                    "firstNameLangs": null,
-                    "middleName": null,
-                    "middleNameLangs": null,
-                    "lastName": null,
-                    "lastNameLangs": null,
-                    "agdesignator": null,
-                    "userLoginName": null
+                    "id": "859007"
                 },
-                "date": "2011-06-01",
-                "time": "2011-06-01T04:59:00.000-04:00",
-                "note": null,
-                "noteLangs": null,
-                "trip": null,
+                "pull-in": false,
                 "run": {
-                    "desig": null,
-                    "id": "S56-001",
-                    "ag": null,
-                    "desigLangs": null,
-                    "agdesig": null,
-                    "agdesigLangs": null,
-                    "name": null,
-                    "nameLangs": null
+                    "id": "S56-001"
                 },
-                "block": {
-                    "id": "MTA NYCT_20120206_CSLT_S56_001",
-                    "ag": null,
-                    "desig": null,
-                    "desigLangs": null,
-                    "name": null,
-                    "nameLangs": null,
-                    "agdesig": null,
-                    "agdesigLangs": null
-                },
-                "localSCHPullInOutInfo": null
+                "time": "2011-06-01T04:59:00.000-04:00",
+                "vehicle": {
+                    "ag": 2008,
+                    "id": "7777"
+                }
             },
             {
-                "pull-in": true,
-                "garage": {
-                    "id": "CSLT",
-                    "ag": null,
-                    "name": null,
-                    "nameLangs": null,
-                    "baseName": null,
-                    "baseNameLangs": null,
-                    "agdesig": "MTA NYCT",
-                    "agdesigLangs": null,
-                    "desig": null,
-                    "desigLangs": null
-                },
-                "vehicle": {
-                    "id": "7777",
-                    "ag": 2008,
-                    "vin": null,
-                    "name": null,
-                    "nameLangs": null,
-                    "desig": null,
-                    "desigLangs": null,
-                    "agdesig": null,
-                    "agdesigLangs": null
-                },
-                "operator": null,
-                "date": "2011-06-01",
-                "time": "2011-06-02T00:49:00.000-04:00",
-                "note": null,
-                "noteLangs": null,
-                "trip": null,
-                "run": {
-                    "desig": null,
-                    "id": "S56-001",
-                    "ag": null,
-                    "desigLangs": null,
-                    "agdesig": null,
-                    "agdesigLangs": null,
-                    "name": null,
-                    "nameLangs": null
-                },
                 "block": {
-                    "id": "MTA NYCT_20120206_CSLT_S56_001",
-                    "ag": null,
-                    "desig": null,
-                    "desigLangs": null,
-                    "name": null,
-                    "nameLangs": null,
-                    "agdesig": null,
-                    "agdesigLangs": null
+                    "id": "MTA NYCT_20120206_CSLT_S56_001"
                 },
-                "localSCHPullInOutInfo": null
+                "date": "2011-06-01",
+                "garage": {
+                    "agdesig": "MTA NYCT",
+                    "id": "CSLT"
+                },
+                "pull-in": true,
+                "run": {
+                    "id": "S56-001"
+                },
+                "time": "2011-06-02T00:49:00.000-04:00",
+                "vehicle": {
+                    "ag": 2008,
+                    "id": "7777"
+                }
             }
         ]
     },
-    "created": "2011-06-01T04:59:00.000-04:00",
     "schVersion": "TCIP 4.0",
     "sourceapp": "YardBoss",
-    "sourceip": null,
-    "sourceport": null,
-    "noNameSpaceSchemaLocation": "http://www.aptatcip.com/APTA-TCIP-S-01%204.0_files/Schema%20Set.zip",
-    "activation": null,
-    "deactivation": "2040-01-04T23:59:00.000-05:00"
+    "subscriptionInfo": {
+        "expirationTime": "19:00:00.000",
+        "publisherIdentifier": 0,
+        "requestIdentifier": 1,
+        "requestedType": "Event",
+        "subscriberIdentifier": 0
+    }
 }

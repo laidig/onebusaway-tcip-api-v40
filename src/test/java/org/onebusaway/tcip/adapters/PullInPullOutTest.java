@@ -1,8 +1,8 @@
 package org.onebusaway.tcip.adapters;
 
+import static net.javacrumbs.jsonunit.JsonAssert.assertJsonEquals;
 import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
 import static org.junit.Assert.assertEquals;
-import static net.javacrumbs.jsonunit.JsonAssert.assertJsonEquals;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,14 +23,11 @@ import org.joda.time.LocalTime;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
-
 import tcip_final_4_0_0.CPTOperatorIden;
 import tcip_final_4_0_0.CPTSubscriptionHeader;
 import tcip_final_4_0_0.CPTTransitFacilityIden;
 import tcip_final_4_0_0.CPTVehicleIden;
+import tcip_final_4_0_0.ObaSchPullOutList;
 import tcip_final_4_0_0.ObjectFactory;
 import tcip_final_4_0_0.SCHBlockIden;
 import tcip_final_4_0_0.SCHOperatorAssignment.DayTypes;
@@ -38,6 +35,10 @@ import tcip_final_4_0_0.SCHPullInOutInfo;
 import tcip_final_4_0_0.SCHRunIden;
 import tcip_final_4_0_0.SchPullOutList;
 import tcip_final_4_0_0.SchPullOutList.PullOuts;
+
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 
 /*
  * This is here to test the XML schema and bindings file, not really to test
@@ -78,12 +79,12 @@ public class PullInPullOutTest {
 	@Test
 	public void testJson() throws JAXBException, IOException, SAXException {
 
-		SchPullOutList pullOuts = makePullOuts();
+		ObaSchPullOutList pullOuts = makePullOuts();
 
 		JaxbAnnotationModule module = new JaxbAnnotationModule();
 		ObjectMapper m = new ObjectMapper();
 		m.registerModule(module);
-
+		m.setSerializationInclusion(Include.NON_NULL);
 		String s = m.writeValueAsString(pullOuts);
 
 		URL resource = this.getClass().getResource("SchPullOutListSample.json");
@@ -94,7 +95,7 @@ public class PullInPullOutTest {
 
 		// This is not an exhaustive test, we just see if part of the structure
 		// and a known value is there.
-		SchPullOutList newPulloutList = m.readValue(s, SchPullOutList.class);
+		ObaSchPullOutList newPulloutList = m.readValue(s, ObaSchPullOutList.class);
 		PullOuts pullOuts2 = newPulloutList.getPullOuts();
 		List<SCHPullInOutInfo> pullOut = pullOuts2.getPullOut();
 		SCHPullInOutInfo info = pullOut.get(0);
@@ -111,8 +112,8 @@ public class PullInPullOutTest {
 
 		URL resource = this.getClass().getResource("SchPullOutListSample.json");
 
-		SchPullOutList pulloutList = (SchPullOutList) m.readValue(new File(
-				resource.getPath()), SchPullOutList.class);
+		ObaSchPullOutList pulloutList = (ObaSchPullOutList) m.readValue(new File(
+				resource.getPath()), ObaSchPullOutList.class);
 
 		PullOuts pullOuts2 = pulloutList.getPullOuts();
 		List<SCHPullInOutInfo> pullOut = pullOuts2.getPullOut();
@@ -123,7 +124,7 @@ public class PullInPullOutTest {
 
 	// CcReportPullOuts meets the description, but is trip and not
 	// block-centric. D'oh!
-	public SchPullOutList makePullOuts() {
+	public ObaSchPullOutList makePullOuts() {
 
 		LocalTime beginTime = new LocalTime("04:59");
 		DateTime beginDateTime = new DateTime("2011-06-01T04:59");
@@ -189,11 +190,11 @@ public class PullInPullOutTest {
 		pi1.setBlock(block1);
 		pi1.setRun(run0);
 
-		SchPullOutList.PullOuts pullOuts = new SchPullOutList.PullOuts();
+		ObaSchPullOutList.PullOuts pullOuts = new ObaSchPullOutList.PullOuts();
 		pullOuts.getPullOut().add(po1);
 		pullOuts.getPullOut().add(pi1);
 
-		SchPullOutList pullOutsList = new SchPullOutList();
+		ObaSchPullOutList pullOutsList = new ObaSchPullOutList();
 		pullOutsList.setSubscriptionInfo(subHeader);
 		pullOutsList.setBeginDate(aDay);
 		pullOutsList.setBeginTime(beginTime);
@@ -203,6 +204,8 @@ public class PullInPullOutTest {
 		pullOutsList.setCreated(beginDateTime);
 		pullOutsList.setSchVersion("TCIP 4.0");
 		pullOutsList.setSourceapp("YardBoss");
+    pullOutsList.setErrorCode("1");
+    pullOutsList.setErrorDescription("Sample error description");
 		pullOutsList
 				.setNoNameSpaceSchemaLocation("http://www.aptatcip.com/APTA-TCIP-S-01%204.0_files/Schema%20Set.zip");
 		pullOutsList.setDeactivation(deactivationTime);
