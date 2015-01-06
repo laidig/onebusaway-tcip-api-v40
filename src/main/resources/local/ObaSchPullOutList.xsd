@@ -3,6 +3,7 @@
   This is NOT complete and is not currently used, but demonstrates how the local extension should be done.
 -->
 <xs:schema elementFormDefault="unqualified" targetNamespace="http://www.TCIP-Final-4-0-0" xmlns="http://www.TCIP-Final-4-0-0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="obaSchPullOutList" type="ObaSchPullOutList"/>
   <xs:complexType name="ObaSchPullOutList">
     <xs:complexContent>
       <xs:extension base="SchPullOutList">
