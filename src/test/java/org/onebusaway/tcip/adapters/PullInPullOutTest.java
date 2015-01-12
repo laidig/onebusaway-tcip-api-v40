@@ -33,7 +33,6 @@ import tcip_final_4_0_0.SCHBlockIden;
 import tcip_final_4_0_0.SCHOperatorAssignment.DayTypes;
 import tcip_final_4_0_0.SCHPullInOutInfo;
 import tcip_final_4_0_0.SCHRunIden;
-import tcip_final_4_0_0.SchPullOutList;
 import tcip_final_4_0_0.SchPullOutList.PullOuts;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -54,11 +53,11 @@ public class PullInPullOutTest {
 	@Test
 	public void test() throws JAXBException, IOException, SAXException {
 
-		SchPullOutList pullOuts = makePullOuts();
+		ObaSchPullOutList pullOuts = makePullOuts();
 
 		ObjectFactory f = new ObjectFactory();
-		JAXBElement<SchPullOutList> pullOutListElement = f
-				.createSchPullOutList(pullOuts);
+		JAXBElement<ObaSchPullOutList> pullOutListElement = f
+				.createObaSchPullOutList(pullOuts);
 		Marshaller m = JAXBContext.newInstance(ObjectFactory.class)
 				.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
